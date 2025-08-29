@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
-        // Crea la lista dei partecipanti
-        let participantsHTML = "";
+        // Crea elenco partecipanti
+        let participantsSection = "";
         if (details.participants.length > 0) {
-          participantsHTML = `
+          participantsSection = `
             <div class="participants-section">
               <strong>Participants:</strong>
               <ul class="participants-list">
@@ -32,10 +32,10 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
           `;
         } else {
-          participantsHTML = `
+          participantsSection = `
             <div class="participants-section">
               <strong>Participants:</strong>
-              <p class="no-participants">No participants yet.</p>
+              <p class="participants-none">No participants yet.</p>
             </div>
           `;
         }
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
-          ${participantsHTML}
+          ${participantsSection}
         `;
 
         activitiesList.appendChild(activityCard);
